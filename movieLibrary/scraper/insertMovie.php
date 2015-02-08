@@ -1,6 +1,5 @@
 <?php
-
-$_SESSION['movieURL'] = 'http://localhost:9000/cs313php/movieLibrary/details/details.php?movie_id=';
+$_SESSION['movieURL'] = 'http://php-jstakebake.rhcloud.com/movieLibrary//details/details.php?movie_id=';
 
 // format movie title for insertion into the database
 $_SESSION['movie']['Title'] = str_replace('\'', '', $_SESSION['movie']['Title']);
