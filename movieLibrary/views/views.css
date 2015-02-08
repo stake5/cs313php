@@ -1,0 +1,37 @@
+th {
+	text-align: center;
+	width: 100%;
+	background-color: #6699CC;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#movieGrid {
+	border: solid;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1097px;
+}
+
+#movieList {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+#movieList a {
+	padding-left: 2%;
+}
+
+#movieList span {
+	padding-left: 2%;
+	text-align: right;
+}
+
+#names {
+	border: solid;
+	background-color: white;
+	width: 1097px;
+	margin-left: auto;
+	margin-right: auto;
+}

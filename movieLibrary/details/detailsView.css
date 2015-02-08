@@ -1,0 +1,42 @@
+th {
+	text-align: center;
+	width: 100%;
+	background-color: #6699CC;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#synopsis 
+{
+	text-indent: 50px;
+	width: 100%;
+	padding-left: ;
+}
+
+.movieInfo
+{
+	text-align: center;
+
+}
+
+#detContainer {
+	border: solid;
+	background-color: white;
+	width: 1097px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+#movieDetails tr td ul {
+	list-style-type: none;
+}
+
+#movieDetails tr td ul li p {
+	width: 100%;
+}
+
+#movieDetails tr td ul li span {
+	width: 100%;
+	text-align: center;
+}
