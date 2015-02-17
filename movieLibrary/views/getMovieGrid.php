@@ -35,7 +35,7 @@ if ($result->num_rows > 0)
         {
             echo '<tr>';
         }
-        echo '<td><a href="'.$row['movie_link'].'"/><img alt="Image not Available!" width="214" height="317" src="'
+        echo '<td><a href="'.$row['movie_link'].'"/><img alt="'.$row['movie_display_name'].'" width="214" height="317" src="'
              .$row['movie_poster'].'"></a><br/><span>Rating: '
              .$row['mpaa_rating'].'</span></td>';
         if ($i % 5 == 0) 

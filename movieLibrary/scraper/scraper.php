@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 echo '<!DOCTYPE html>';
 echo '<html>';
 echo '	<head>';
@@ -12,8 +12,7 @@ echo '			<table id="movieGrid">';
 
 
 
-$movieList=file('movies.txt');
-$fileList=file('files.txt');
+$movieList=$_SESSION['movies'];
 $_SESSION['i'] = 0;
 foreach($movieList as $key => $line)
 {
@@ -28,7 +27,6 @@ foreach($movieList as $key => $line)
 	$html = file_get_contents($url); 
 
 	// pull out the important information from the request
-	$_SESSION['movieFile'] = $fileList[$key];
 	$_SESSION['movie'] = json_decode($html, true);
 
 	// insert movie if it doesn't already exist in the database
@@ -42,5 +40,5 @@ echo '			</table>';
 echo '			</div>';
 echo '		</div>';
  
-
+$_SESSION['movies'] = array();
 ?>

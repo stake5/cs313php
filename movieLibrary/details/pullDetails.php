@@ -37,7 +37,7 @@ if ($result->num_rows > 0)
         echo '          <ul>';
         echo '              <li><p class="movieInfo">'.$row['movie_display_name']
             .'</p></li>';
-        echo '              <li><img src="'.$row['movie_poster'].'"/></li>';
+        echo '              <li><div class="wrapper"><img src="'.$row['movie_poster'].'" /></div></li>';
         echo '              <li><p class="movieInfo">Rating : '.$row['mpaa_rating'].'<p></li>';
         echo '          </ul>';
         echo '      </td>';
