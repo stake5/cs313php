@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if ($_POST) 
-{
-	include 'insertUser.php';
-}
 
 echo '<!DOCTYPE html>';
 echo '<html>';
@@ -40,6 +36,12 @@ echo '						<td><input type="submit" value="Register"></td>';
 echo '					</tr>';
 echo '					<tr>';
 echo '						<td><a id="loginLink" href="login.php">Login</a></td>';
+echo '						<td>';
+if ($_POST) 
+{
+	include 'insertUser.php';
+}
+echo '						</td>';
 echo '					</tr>';
 echo '				</table>';
 echo '			</form>';

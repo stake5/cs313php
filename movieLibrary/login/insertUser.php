@@ -41,7 +41,7 @@ if ($userMatch == FALSE)
     
     if ($conn->query($sql) === TRUE) 
     {
-        echo 'insertion was successfull';
+        echo 'Registration was successfull';
     } 
     // for debugging
     else 

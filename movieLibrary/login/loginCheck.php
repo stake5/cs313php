@@ -6,10 +6,7 @@ if ($_SESSION['logged_in'] == FALSE)
     $username = StringInputCleaner($_POST['user_name']);
     $password = StringInputCleaner($_POST['user_password']);
 
-
     include '../dbConnect.php';
-
-    echo $username." = ";
 
     $sql = "SELECT user_password, user_permissions FROM user WHERE user_name='".$username."'";
     $result = $conn->query($sql);
