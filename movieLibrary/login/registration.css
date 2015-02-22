@@ -1,14 +1,14 @@
 #loginBox {
 	background-color: #6699CC;
-	max-height: 200px;
-	max-width: 290px;
+	max-height: 220px;
+	max-width: 275px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 0;
 	box-shadow: 5px 5px 2px;
 }
 
-#registrationLink {
+#loginLink {
 	color: black;
 }
 

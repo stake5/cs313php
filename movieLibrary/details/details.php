@@ -5,7 +5,7 @@ echo '<link rel="stylesheet" type="text/css" href="../navigation/navigation.css"
 
 session_start();
 
-include '../login/loginCheck.php';
+//include '../login/loginCheck.php';
 include '../navigation/navigation.html';
 
 echo '<!DOCTYPE html>';

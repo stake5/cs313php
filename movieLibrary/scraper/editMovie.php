@@ -6,12 +6,14 @@ $updated = FALSE;
 
 if (!empty($_POST['edit'])) 
 {
-	$_SESSION['movie']['oldTitle'] = $_POST['title'];
-	$_SESSION['movie']['Title'] = $_POST['newTitle'];
-	$_SESSION['movieFile'] = $_POST['file'];
-	$_SESSION['movie']['Poster'] = $_POST['poster'];
-	$_SESSION['movie']['Plot'] = $_POST['plot'];
-	$_SESSION['movie']['Rated'] = $_POST['rating'];
+	include '../sanitize.php';
+
+	$_SESSION['movie']['oldTitle'] = StringInputCleaner($_POST['title']);
+	$_SESSION['movie']['Title'] = StringInputCleaner($_POST['newTitle']);
+	$_SESSION['movieFile'] = StringInputCleaner($_POST['file']);
+	$_SESSION['movie']['Poster'] = StringInputCleaner($_POST['poster']);
+	$_SESSION['movie']['Plot'] = StringInputCleaner($_POST['plot']);
+	$_SESSION['movie']['Rated'] = StringInputCleaner($_POST['rating']);
 
 	include 'updateMovie.php';
 }

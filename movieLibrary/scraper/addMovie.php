@@ -1,16 +1,7 @@
 <?php
 session_start();
 
-if (!empty($_POST['add'])) 
-{
-	$_SESSION['movie']['Title'] = $_POST['title'];
-	$_SESSION['movieFile'] = $_POST['file'];
-	$_SESSION['movie']['Poster'] = $_POST['poster'];
-	$_SESSION['movie']['Plot'] = $_POST['plot'];
-	$_SESSION['movie']['Rated'] = $_POST['rating'];
-	include 'insertMovie.php';
 
-}
 
 echo '<!DOCTYPE html>';
 echo '<html>';
@@ -51,6 +42,18 @@ if (!empty($_SESSION['movies']))
 	foreach ($_SESSION['movies'] as $movie) {
 		echo '<label>'.$movie.'</label><br/>';
 	}
+}
+if (!empty($_POST['add'])) 
+{
+	include '../sanitize.php';
+
+	$_SESSION['movie']['Title'] = StringInputCleaner($_POST['title']);
+	$_SESSION['movieFile'] = StringInputCleaner($_POST['file']);
+	$_SESSION['movie']['Poster'] = StringInputCleaner($_POST['poster']);
+	$_SESSION['movie']['Plot'] = StringInputCleaner($_POST['plot']);
+	$_SESSION['movie']['Rated'] = StringInputCleaner($_POST['rating']);
+
+	include 'insertMovie.php';
 }
 echo '		</div>';
 ?>

@@ -1,18 +1,23 @@
 <?php
 session_start();
 
+if ($_POST) 
+{
+	include 'insertUser.php';
+}
+
 echo '<!DOCTYPE html>';
 echo '<html>';
 echo '	<head>';
 echo '		<title>Airtime Login</title>';
-echo '		<link rel="stylesheet" type="text/css" href="login.css">';
+echo '		<link rel="stylesheet" type="text/css" href="registration.css">';
 echo '	</head>';
 echo '	<body>';
 echo '		<div id="loginBox">';
 echo '			<div id="loginTitle">';
-echo '				<h1>Airtime Login</h1>';
+echo '				<h1>Airtime Registration</h1>';
 echo '			</div>';
-echo '			<form name="login" method="post" action="../home/home.php">';
+echo '			<form name="login" method="post" action="registration.php">';
 echo '				<table>';
 echo '					<tr>';
 echo '						<td>';
@@ -31,14 +36,10 @@ echo '							<input type="password" name="user_password"><br/>';
 echo '						</td>';
 echo '					</tr>';
 echo '					<tr>';
-echo '						<td><input type="submit" value="Login"></td>';
-if ($_SESSION['login_attempts'] > 1) 
-{
-	echo '<td><p>Login Failed!</p></td>';
-}
+echo '						<td><input type="submit" value="Register"></td>';
 echo '					</tr>';
 echo '					<tr>';
-echo '						<td><a id="registrationLink" href="registration.php" >Registration</a></td>';
+echo '						<td><a id="loginLink" href="login.php">Login</a></td>';
 echo '					</tr>';
 echo '				</table>';
 echo '			</form>';

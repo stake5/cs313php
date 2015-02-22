@@ -1,60 +1,50 @@
 <?php
-include 'sanitize.php';
-if ($_SESSION['logged_in'] == False)
+include '../sanitize.php';
+if ($_SESSION['logged_in'] == FALSE)
 {
     // get and sanitize input
-    $_SESSION['user_name'] = StringInputCleaner($_POST['user_name']);
-    $_SESSION['user_password'] = StringInputCleaner($_POST['user_password']);
-}
-
-// initialize connection variables
-$servername = "localhost";
-$username = "airtime";
-$password = "movies";
-$dbname = "moviedb";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT user_password FROM user WHERE user_name='".$_SESSION['user_name']."'";
-$result = $conn->query($sql);
+    $username = StringInputCleaner($_POST['user_name']);
+    $password = StringInputCleaner($_POST['user_password']);
 
 
-$passwordMatch = False;
-if ($result->num_rows > 0) 
-{
-    // output data of each row
-    while($row = $result->fetch_assoc()) 
+    include '../dbConnect.php';
+
+    echo $username." = ";
+
+    $sql = "SELECT user_password, user_permissions FROM user WHERE user_name='".$username."'";
+    $result = $conn->query($sql);
+
+
+    $passwordMatch = FALSE;
+    if ($result->num_rows > 0) 
     {
-        if ($row['user_password']== $_SESSION['user_password']) 
+        
+
+        $row = $result->fetch_assoc();
+
+        if (password_verify($password, $row['user_password'])) 
         {
-        	$passwordMatch = True;
-        	break;
+            $passwordMatch = TRUE;
+            $_SESSION['permissions'] = $row['user_permissions'];
         }
-        elseif ($_SESSION) 
+        else
         {
-            # code...
+            $passwordMatch = FALSE;
         }
+    } 
+
+    if ($passwordMatch == FALSE || $_SESSION['logged_in'] == TRUE)
+    {
+    	$_SESSION['login_attempts'] += 1;
+    	$conn->close();
+        header('Location: ../login/login.php');
     }
-} 
+    else
+    {
+        $_SESSION['logged_in'] = TRUE;
+    }
 
-if ($passwordMatch == False)
-{
-	$_SESSION['login_attempts'] += 1;
-	$conn->close();
-    header('Location: ../login/login.php');
+    // close the database connection
+    $conn->close();
 }
-else
-{
-    $_SESSION['logged_in'] = True;
-}
-
-// close the database connection
-$conn->close();
-
 ?>

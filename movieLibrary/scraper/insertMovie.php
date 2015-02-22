@@ -1,4 +1,5 @@
 <?php
+
 $_SESSION['movieURL'] = $_SESSION['mainURL'].'details/details.php?movie_id=';
 
 // format movie title for insertion into the database
@@ -6,14 +7,7 @@ $_SESSION['movie']['Title'] = str_replace('\'', '', $_SESSION['movie']['Title'])
 $_SESSION['movieFile'] = str_replace('\'', '', $_SESSION['movieFile']);
 $_SESSION['movie']['Plot'] = str_replace('\'', '', $_SESSION['movie']['Plot']);
 
-// initialize connection variables
-$servername = "localhost";
-$username = "airtime";
-$password = "movies";
-$dbname = "moviedb";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+include '../dbConnect.php';
 
 // Check connection
 if ($conn->connect_error) {
