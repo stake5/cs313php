@@ -1,6 +1,6 @@
 <?php
 
-$_SESSION['movieURL'] = $_SESSION['mainURL'].'details/details.php?movie_id=';
+$_SESSION['movieURL'] = 'http://cs313.homelinuxserver.org/cs313php/movieLibrary/details/details.php?movie_id=';
 
 // format movie title for insertion into the database
 $_SESSION['movie']['Title'] = str_replace('\'', '', $_SESSION['movie']['Title']);
